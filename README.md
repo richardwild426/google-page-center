@@ -27,3 +27,7 @@ Other pages are ignored.
 
 - `manifest.json` defines the Chrome extension and URL matching rules.
 - `content/page-center.css` contains the centering styles.
+
+## Acknowledgements
+
+Thanks to the Stylus project, which this extension was adapted from.
