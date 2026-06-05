@@ -1,0 +1,25 @@
+@media screen and (min-width: 1180px) {
+  html {
+    background-position: center top !important;
+  }
+
+  body {
+    max-width: 1280px !important;
+    min-width: 0 !important;
+    margin-left: auto !important;
+    margin-right: auto !important;
+    overflow-x: auto !important;
+  }
+
+  body > header,
+  body > nav,
+  body > main,
+  body > section,
+  body > article,
+  body > footer,
+  body > div,
+  body > table {
+    margin-left: auto !important;
+    margin-right: auto !important;
+  }
+}
