@@ -4,59 +4,7 @@
 
 /* exported tokenMan */
 const tokenMan = (() => {
-  const AUTH = {
-    dropbox: {
-      flow: 'token',
-      clientId: 'zg52vphuapvpng9',
-      authURL: 'https://www.dropbox.com/oauth2/authorize',
-      tokenURL: 'https://api.dropboxapi.com/oauth2/token',
-      revoke: token =>
-        fetch('https://api.dropboxapi.com/2/auth/token/revoke', {
-          method: 'POST',
-          headers: {
-            'Authorization': `Bearer ${token}`,
-          },
-        }),
-    },
-    google: {
-      flow: 'code',
-      clientId: '283762574871-d4u58s4arra5jdan2gr00heasjlttt1e.apps.googleusercontent.com',
-      clientSecret: '', // 从环境变量或安全存储中获取
-      authURL: 'https://accounts.google.com/o/oauth2/v2/auth',
-      authQuery: {
-        // NOTE: Google needs 'prompt' parameter to deliver multiple refresh
-        // tokens for multiple machines.
-        // https://stackoverflow.com/q/18519185
-        access_type: 'offline',
-        prompt: 'consent',
-      },
-      tokenURL: 'https://oauth2.googleapis.com/token',
-      scopes: ['https://www.googleapis.com/auth/drive.appdata'],
-      revoke: token => {
-        const params = {token};
-        return postQuery(`https://accounts.google.com/o/oauth2/revoke?${new URLSearchParams(params)}`);
-      },
-    },
-    onedrive: {
-      flow: 'code',
-      clientId: '3864ce03-867c-4ad8-9856-371a097d47b1',
-      clientSecret: '', // 从环境变量或安全存储中获取
-      authURL: 'https://login.microsoftonline.com/common/oauth2/v2.0/authorize',
-      tokenURL: 'https://login.microsoftonline.com/common/oauth2/v2.0/token',
-      redirect_uri: FIREFOX ?
-        'https://clngdbkpkpeebahjckkjfobafhncgmne.chromiumapp.org/' :
-        'https://' + location.hostname + '.chromiumapp.org/',
-      scopes: ['Files.ReadWrite.AppFolder', 'offline_access'],
-    },
-    userstylesworld: {
-      flow: 'code',
-      clientId: 'zeDmKhJIfJqULtcrGMsWaxRtWHEimKgS',
-      clientSecret: '', // 从环境变量或安全存储中获取
-      authURL: URLS.usw + 'api/oauth/style/link',
-      tokenURL: URLS.usw + 'api/oauth/token',
-      redirect_uri: 'https://gusted.xyz/callback_helper/',
-    },
-  };
+  const AUTH = {};
   const NETWORK_LATENCY = 30; // seconds
 
   let alwaysUseTab = FIREFOX ? false : null;
