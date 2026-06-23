@@ -26,7 +26,19 @@ jobs:
           name: google-page-center
           path: google-page-center.zip
 
-      - name: Create Release
+      - name: Create/Update Latest Release (main)
+        if: github.ref == 'refs/heads/main'
+        uses: ncipollo/release-action@v1
+        with:
+          name: Latest Build
+          tag: latest
+          prerelease: true
+          allowUpdates: true
+          artifacts: google-page-center.zip
+          generateReleaseNotes: true
+          token: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: Create Tag Release
         if: startsWith(github.ref, 'refs/tags/v')
         uses: softprops/action-gh-release@v2
         with:
