@@ -21,7 +21,7 @@ const tokenMan = (() => {
     google: {
       flow: 'code',
       clientId: '283762574871-d4u58s4arra5jdan2gr00heasjlttt1e.apps.googleusercontent.com',
-      clientSecret: 'J0nc5TlR_0V_ex9-sZk-5faf',
+      clientSecret: '', // 从环境变量或安全存储中获取
       authURL: 'https://accounts.google.com/o/oauth2/v2/auth',
       authQuery: {
         // NOTE: Google needs 'prompt' parameter to deliver multiple refresh
@@ -40,7 +40,7 @@ const tokenMan = (() => {
     onedrive: {
       flow: 'code',
       clientId: '3864ce03-867c-4ad8-9856-371a097d47b1',
-      clientSecret: '9Pj=TpsrStq8K@1BiwB9PIWLppM:@s=w',
+      clientSecret: '', // 从环境变量或安全存储中获取
       authURL: 'https://login.microsoftonline.com/common/oauth2/v2.0/authorize',
       tokenURL: 'https://login.microsoftonline.com/common/oauth2/v2.0/token',
       redirect_uri: FIREFOX ?
@@ -51,8 +51,7 @@ const tokenMan = (() => {
     userstylesworld: {
       flow: 'code',
       clientId: 'zeDmKhJIfJqULtcrGMsWaxRtWHEimKgS',
-      clientSecret: 'wqHsvTuThQmXmDiVvOpZxPwSIbyycNFImpAOTxjaIRqDbsXcTOqrymMJKsOMuibFaij' +
-        'ZZAkVYTDbLkQuYFKqgpMsMlFlgwQOYHvHFbgxQHDTwwdOroYhOwFuekCwXUlk',
+      clientSecret: '', // 从环境变量或安全存储中获取
       authURL: URLS.usw + 'api/oauth/style/link',
       tokenURL: URLS.usw + 'api/oauth/token',
       redirect_uri: 'https://gusted.xyz/callback_helper/',
